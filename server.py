@@ -4,7 +4,7 @@ from typing import *
 import key_press
 import telnetlib
 
-SERVER_ADDR = ('0.0.0.0', 10000)
+SERVER_ADDR = ('0.0.0.0', 10001)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(SERVER_ADDR)
