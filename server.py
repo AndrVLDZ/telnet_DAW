@@ -19,7 +19,7 @@ def handle_event_msg(data):
         print("\nStarting keypress event")
     else:
         print("\nJust a msg")
-        print(data)
+        print(str(data, "utf-8"))
 
 
 def handler(current_conn: socket.socket, addr):
