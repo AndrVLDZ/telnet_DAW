@@ -1,7 +1,27 @@
 import telnetlib
 #ip_1 = str(input('Another computer IP_1: '))
 #ip_2 = str(input('Another computer IP_2: '))
-print('я карта я карта я карта\n\n')
+
+def print_logo(logo=''):
+    LOGO_DAFAULT = """\033[93m
+
+   /\                 /\\
+  / \\'._   (\_/)   _.'/ \\
+ /_.''._'--('.')--'_.''._\\
+ | \_ / `;=/ " \=;` \ _/ |
+  \/ `\__|`\___/`|__/`  \/
+   `      \(/|\)/        `
+           " ` "
+       Viktor&Cepesh 
+\033[0m
+"""
+    if logo != '':
+        print(logo)
+    else:
+        print(LOGO_DAFAULT)
+
+print_logo()
+
 port = int(input('\nTELL ME THE FUCKING PORT:'))
 
 while True:

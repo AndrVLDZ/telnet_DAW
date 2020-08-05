@@ -4,19 +4,38 @@ from typing import *
 import key_press
 import telnetlib
 
-SERVER_ADDR = ('0.0.0.0', 10001)
+def print_logo(logo=''):
+    LOGO_DAFAULT = """\033[93m
 
+   /\                 /\\
+  / \\'._   (\_/)   _.'/ \\
+ /_.''._'--('.')--'_.''._\\
+ | \_ / `;=/ " \=;` \ _/ |
+  \/ `\__|`\___/`|__/`  \/
+   `      \(/|\)/        `
+           " ` "
+       Viktor&Cepesh 
+\033[0m
+"""
+    if logo != '':
+        print(logo)
+    else:
+        print(LOGO_DAFAULT)
+
+print_logo()
+port = int(input('Set the server port: '))
+SERVER_ADDR = ('0.0.0.0', port)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(SERVER_ADDR)
 sock.listen(1)
-
 connections = []
-
+ip = socket.gethostbyname(socket.getfqdn())
+print('Host IP: ' + str(ip))
 
 def handle_event_msg(data):
     if str(data, "utf-8") == "s":
         key_press.start_DAW()
-        print("\nStarting keypress event")
+        print("\nKeypress event")
     else:
         print("\nJust a msg")
         print(str(data, "utf-8"))
